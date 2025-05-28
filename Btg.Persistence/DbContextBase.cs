@@ -1,7 +1,6 @@
 ﻿using Btg.Core.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Reflection.Emit;
+
 
 namespace Btg.Persistence;
 
@@ -28,6 +27,17 @@ public class DbContextBase : DbContext
             entity.Property(c => c.Name)
                   .IsRequired()          // Torna o campo obrigatório
                   .HasMaxLength(100);    // Define tamanho máximo
+
+            entity.Property(c => c.LastName)
+                    .IsRequired()
+                    .HasMaxLength(100);
+            entity.Property(c => c.Age)
+                    .IsRequired()
+                    .HasMaxLength(3);
+            entity.Property(c => c.Andress)
+                    .IsRequired()
+                    .HasMaxLength(200);
+
         });
     }
 }

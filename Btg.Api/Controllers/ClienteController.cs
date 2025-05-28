@@ -22,7 +22,10 @@ public class ClientController(IClientService clientService) : ControllerBase
         var model = new ClientResponse
         {
             Id = client.Id,
-            Name = client.Name
+            Name = client.Name,
+            LastName = client.LastName,
+            Age = client.Age,
+            Andress = client.Andress
         };
         return model;
     }
@@ -37,6 +40,9 @@ public class ClientController(IClientService clientService) : ControllerBase
         {
             Id = x.Id,
             Name = x.Name,
+            LastName = x.LastName,
+            Age = x.Age,
+            Andress = x.Andress
         }).ToList();
 
         return result;
@@ -49,7 +55,9 @@ public class ClientController(IClientService clientService) : ControllerBase
         {
             Id = request.Id,
             Name = request.Name,
-
+            LastName = request.LastName,
+            Age = request.Age,
+            Andress = request.Andress
         };
         var result = await clientService.Save(client);
 
