@@ -7,7 +7,6 @@ namespace Btg.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-//[Authorize]
 public class ClienteController(IClienteService clienteService) : ControllerBase
 {
    
