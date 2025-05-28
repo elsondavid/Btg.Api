@@ -1,6 +1,4 @@
-﻿
-
-using Btg.Core.Services;
+﻿using Btg.Core.Services;
 
 namespace Btg.Api;
 

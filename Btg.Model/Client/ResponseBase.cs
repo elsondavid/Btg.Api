@@ -1,4 +1,4 @@
-﻿namespace Doc.Model.Cliente;
+﻿namespace Btg.Model.Cliente;
 
 public class ResponseBase
 {

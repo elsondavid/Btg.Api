@@ -1,6 +1,6 @@
-﻿using Btg.Core.Services;
+﻿using Btg.Core.Entities;
+using Btg.Core.Services;
 using Btg.Model.Cliente;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Btg.Api.Controllers;
@@ -9,7 +9,25 @@ namespace Btg.Api.Controllers;
 [Route("[controller]")]
 public class ClientController(IClientService clientService) : ControllerBase
 {
-   
+
+    [HttpGet, Route("Get")]
+    public async Task<ActionResult<ClientResponse>> Get(Guid id)
+    {
+        var client = await clientService.GetClient(id);
+
+        if (client == null)
+        {
+            return NotFound();
+        }
+        var model = new ClientResponse
+        {
+            Id = client.Id,
+            Name = client.Name
+        };
+        return model;
+    }
+
+
     [HttpGet, Route("GetAll")]
     public ActionResult<IEnumerable<ClientResponse>> GetAll(string? searchTerm, bool? isEnabled)
     {
@@ -22,5 +40,36 @@ public class ClientController(IClientService clientService) : ControllerBase
         }).ToList();
 
         return result;
+    }
+
+    [HttpPost, Route("Save")]
+    public async Task<ActionResult> Save(SaveClientRequest request)
+    {
+        var client = new Client
+        {
+            Id = request.Id,
+            Name = request.Name,
+
+        };
+        var result = await clientService.Save(client);
+
+        if (result.HasErrors)
+        {
+            return BadRequest(new { message = client.ErrorsAsString });
+        }
+
+        return Ok(result.Id);
+    }
+
+    [HttpDelete, Route("Delete")]
+    public async Task<ActionResult> Delete(Guid id)
+    {
+        var result = await clientService.Delete(id);
+
+        if (result == false)
+        {
+            return NotFound();
+        }
+        return Ok();
     }
 }
