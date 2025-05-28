@@ -8,7 +8,8 @@ namespace Btg.Core.Services;
 public interface IClientService
 {
     Task<Client?> GetClient(Guid id);
-    IList<Client> GetAll(string? searchTerm, bool? isEnabled);    Task<Client> Save(Client client);
+    IList<Client> GetAll(string? searchTerm, bool? isEnabled);    
+    Task<Client> Save(Client client);
     Task<bool> Delete(Guid id);
 }
 
