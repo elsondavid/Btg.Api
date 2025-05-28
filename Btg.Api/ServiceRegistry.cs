@@ -9,7 +9,7 @@ public static class ServiceRegistry
     public static void AddServiceRegistry(this WebApplicationBuilder builder)
     {
         builder.Services
-            .AddScoped<IClienteService, ClienteService>();
+            .AddScoped<IClientService, ClientService>();
            
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Btg.Model.Cliente;
 
-public class ClienteResponse
+public class ClientResponse
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

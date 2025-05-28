@@ -1,5 +1,5 @@
 ﻿namespace Btg.Core.Entities;
-public partial class Cliente : EntityBase
+public partial class Client : EntityBase
 {
    
     public Guid Id { get; set; }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Btg.Persistence.Migrations
 {
     [DbContext(typeof(DbContextBase))]
-    [Migration("20250528013748_InitialCreate")]
+    [Migration("20250528130941_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -26,7 +26,7 @@ namespace Btg.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Btg.Core.Entities.Cliente", b =>
+            modelBuilder.Entity("Btg.Core.Entities.Client", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,7 @@ namespace Btg.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clientes", "dbo");
+                    b.ToTable("Clients", "dbo");
                 });
 #pragma warning restore 612, 618
         }

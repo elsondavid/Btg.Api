@@ -7,15 +7,15 @@ namespace Btg.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ClienteController(IClienteService clienteService) : ControllerBase
+public class ClientController(IClientService clientService) : ControllerBase
 {
    
     [HttpGet, Route("GetAll")]
-    public ActionResult<IEnumerable<ClienteResponse>> GetAll(string? searchTerm, bool? isEnabled)
+    public ActionResult<IEnumerable<ClientResponse>> GetAll(string? searchTerm, bool? isEnabled)
     {
-        var clientes = clienteService.GetAll(searchTerm, isEnabled);
+        var clients = clientService.GetAll(searchTerm, isEnabled);
 
-        var result = clientes.Select(x => new ClienteResponse
+        var result = clients.Select(x => new ClientResponse
         {
             Id = x.Id,
             Name = x.Name,
@@ -23,6 +23,4 @@ public class ClienteController(IClienteService clienteService) : ControllerBase
 
         return result;
     }
-
-   
 }

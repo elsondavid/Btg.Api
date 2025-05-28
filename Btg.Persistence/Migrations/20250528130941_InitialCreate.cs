@@ -15,7 +15,7 @@ namespace Btg.Persistence.Migrations
                 name: "dbo");
 
             migrationBuilder.CreateTable(
-                name: "Clientes",
+                name: "Clients",
                 schema: "dbo",
                 columns: table => new
                 {
@@ -25,7 +25,7 @@ namespace Btg.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.Id);
+                    table.PrimaryKey("PK_Clients", x => x.Id);
                 });
         }
 
@@ -33,7 +33,7 @@ namespace Btg.Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Clientes",
+                name: "Clients",
                 schema: "dbo");
         }
     }
