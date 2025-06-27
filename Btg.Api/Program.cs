@@ -1,4 +1,3 @@
-// Versão CORRIGIDA:
 using Btg.Api;
 using Btg.Core.Repository;
 using Btg.Persistence;
